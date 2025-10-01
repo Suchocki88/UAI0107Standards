@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 1.7 Standards - Understanding AI</title>
+    <title>Lesson 1.7 State Standards - Understanding AI</title>
     <style>
         * {
             margin: 0;
@@ -14,32 +14,36 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background-color: #f5f5f5;
-            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
             background: white;
-            min-height: 100vh;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
 
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: center;
         }
 
         .header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.2em;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .header .subtitle {
-            font-size: 1.1em;
-            opacity: 0.95;
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         .lesson-info {
@@ -60,160 +64,116 @@
             padding: 30px;
         }
 
-        .intro {
+        .selector-section {
             background: #e8f4f8;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #2196F3;
+            padding: 25px;
+            border-radius: 10px;
             margin-bottom: 30px;
-        }
-
-        .standards-selector {
-            margin-bottom: 30px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .standards-selector label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #667eea;
-            font-size: 1.1em;
-        }
-
-        .standards-selector select {
-            width: 100%;
-            padding: 12px;
-            font-size: 1em;
             border: 2px solid #667eea;
-            border-radius: 5px;
+        }
+
+        .selector-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .state-selector {
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
             background: white;
             cursor: pointer;
-            transition: border-color 0.3s;
+            transition: all 0.3s ease;
         }
 
-        .standards-selector select:hover {
-            border-color: #764ba2;
-        }
-
-        .standards-selector select:focus {
+        .state-selector:focus {
             outline: none;
-            border-color: #764ba2;
-            box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.1);
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
         }
 
-        .standards-content {
+        .standards-display {
             display: none;
-            animation: fadeIn 0.3s;
-        }
-
-        .standards-content.active {
-            display: block;
+            animation: fadeIn 0.5s ease-in;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .standard-section {
-            background: white;
-            padding: 25px;
+        .standards-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
             margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-left: 4px solid #667eea;
         }
 
-        .standard-section h2 {
+        .standards-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .standards-section {
+            margin-bottom: 25px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .standards-section h3 {
             color: #667eea;
+            font-size: 1.3rem;
             margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-
-        .standard-section h3 {
-            color: #764ba2;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.2em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
         }
 
         .standard-item {
-            background: #f9f9f9;
-            padding: 15px;
+            background: white;
             margin: 10px 0;
-            border-radius: 5px;
-            border-left: 3px solid #9c27b0;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .standard-code {
-            font-weight: 600;
-            color: #764ba2;
-            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #667eea;
+            font-size: 0.9rem;
         }
 
-        .standard-description {
-            margin-top: 8px;
+        .standard-text {
+            margin-top: 5px;
             color: #555;
         }
 
-        .alignment-note {
+        .lesson-note {
             background: #fff3e0;
             padding: 15px;
-            border-radius: 5px;
+            border-radius: 8px;
+            margin-top: 20px;
             border-left: 4px solid #ff9800;
-            margin-top: 15px;
-            font-style: italic;
         }
 
-        .lesson-connection {
-            background: #e8f5e9;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 10px;
+        .lesson-note strong {
+            color: #e65100;
         }
 
-        .lesson-connection strong {
-            color: #2e7d32;
-        }
-
-        ul {
-            margin: 10px 0;
-            padding-left: 25px;
-        }
-
-        li {
-            margin: 8px 0;
-        }
-
-        .print-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
-
-        .print-button:hover {
-            background: #764ba2;
-        }
-
-        @media print {
-            .print-button, .standards-selector {
-                display: none;
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
             }
-            .standards-content {
-                display: block !important;
+            
+            .content {
+                padding: 20px;
             }
         }
     </style>
@@ -221,8 +181,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Lesson 1.7 Standards Alignment</h1>
-            <div class="subtitle">Intelligence All Around Us</div>
+            <h1>Lesson 1.7: Intelligence All Around Us</h1>
+            <p>State Standards Alignment</p>
             <div class="lesson-info">
                 <div><strong>Type:</strong> Discussion Day</div>
                 <div><strong>Chapter:</strong> 1</div>
@@ -230,316 +190,512 @@
             </div>
         </div>
 
-        <button class="print-button" onclick="window.print()">🖨️ Print Standards</button>
-
         <div class="content">
-            <div class="intro">
-                <p><strong>Lesson 1.7</strong> is a discussion-based capstone for Chapter 1, where students synthesize their learning through reflection, discourse, and critical thinking about AI's societal implications. This lesson emphasizes oral communication, collaborative discussion, and the application of inquiry skills to complex real-world issues.</p>
+            <div class="lesson-note">
+                <strong>About This Lesson:</strong> Lesson 1.7 is a discussion-based capstone for Chapter 1, emphasizing synthesis, oral communication, and critical analysis of AI's societal implications through collaborative discourse.
             </div>
 
-            <div class="standards-selector">
-                <label for="standards-select">Select Standards Framework:</label>
-                <select id="standards-select" onchange="showStandards(this.value)">
-                    <option value="">-- Choose Standards Framework --</option>
-                    <option value="ccss">Common Core State Standards (CCSS) - ELA</option>
-                    <option value="ngss">Next Generation Science Standards (NGSS)</option>
-                    <option value="iste">ISTE Standards for Students</option>
-                    <option value="csta">CSTA K-12 Computer Science Standards</option>
-                    <option value="c3">C3 Framework for Social Studies</option>
+            <div class="selector-section">
+                <div class="selector-label">Select your state or standards framework:</div>
+                <select id="stateSelector" class="state-selector">
+                    <option value="">Choose your state...</option>
+                    <option value="c3">C3 Framework (National Social Studies)</option>
+                    <option value="california">California</option>
+                    <option value="texas">Texas</option>
+                    <option value="florida">Florida</option>
+                    <option value="new_york">New York</option>
+                    <option value="pennsylvania">Pennsylvania</option>
+                    <option value="illinois">Illinois</option>
+                    <option value="ohio">Ohio</option>
+                    <option value="georgia">Georgia</option>
+                    <option value="north_carolina">North Carolina</option>
+                    <option value="michigan">Michigan</option>
+                    <option value="washington">Washington</option>
+                    <option value="mississippi">Mississippi</option>
                 </select>
             </div>
 
-            <!-- Common Core Standards -->
-            <div id="ccss" class="standards-content">
-                <div class="standard-section">
-                    <h2>Common Core State Standards - English Language Arts</h2>
-                    
-                    <div class="alignment-note">
-                        Lesson 1.7 strongly emphasizes speaking and listening standards as students engage in collaborative discussion, synthesize learning, and communicate complex ideas about AI's societal impact.
-                    </div>
-
-                    <h3>Speaking and Listening Standards (Grades 9-10)</h3>
-                    
-                    <div class="standard-item">
-                        <div class="standard-code">CCSS.ELA-LITERACY.SL.9-10.1</div>
-                        <div class="standard-description">Initiate and participate effectively in a range of collaborative discussions (one-on-one, in groups, and teacher-led) with diverse partners on grades 9-10 topics, texts, and issues, building on others' ideas and expressing their own clearly and persuasively.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students engage in pair-share discussions and whole-class dialogue about AI's nature, capabilities, and societal implications. They build on classmates' ideas about environmental, economic, and social impacts of AI technology.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">CCSS.ELA-LITERACY.SL.9-10.1.A</div>
-                        <div class="standard-description">Come to discussions prepared, having read and researched material under study; explicitly draw on that preparation by referring to evidence from texts and other research on the topic or issue to stimulate a thoughtful, well-reasoned exchange of ideas.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students reference their field journal documentation from Lessons 1.3-1.5, citing specific observations from their Alia experiments to support claims about AI capabilities and limitations.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">CCSS.ELA-LITERACY.SL.9-10.1.C</div>
-                        <div class="standard-description">Propel conversations by posing and responding to questions that relate the current discussion to broader themes or larger ideas; actively incorporate others into the discussion; and clarify, verify, or challenge ideas and conclusions.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Discussion questions connect specific AI observations to broader themes: environmental sustainability, economic equity, social justice. Students challenge and build on each other's ideas about AI's "moving target" nature.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">CCSS.ELA-LITERACY.SL.9-10.1.D</div>
-                        <div class="standard-description">Respond thoughtfully to diverse perspectives, summarize points of agreement and disagreement, and, when warranted, qualify or justify their own views and understanding and make new connections in light of the evidence and reasoning presented.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students discuss competing values (e.g., AI's energy consumption vs. its problem-solving potential), acknowledge different perspectives on economic impacts, and refine their thinking based on classmates' insights.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">CCSS.ELA-LITERACY.SL.9-10.2</div>
-                        <div class="standard-description">Integrate multiple sources of information presented in diverse media or formats (e.g., visually, quantitatively, orally) evaluating the credibility and accuracy of each source.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students synthesize information from their hands-on experiments (field journals), lesson content, and optional current news articles about AI to form comprehensive understanding of AI's societal role.</div>
-                    </div>
-
-                    <h3>Writing Standards (Grades 9-10)</h3>
-
-                    <div class="standard-item">
-                        <div class="standard-code">CCSS.ELA-LITERACY.W.9-10.10</div>
-                        <div class="standard-description">Write routinely over extended time frames (time for research, reflection, and revision) and shorter time frames (a single sitting or a day or two) for a range of tasks, purposes, and audiences.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students engage in brief reflective writing (field journal entries) synthesizing Chapter 1 learning and articulating their current understanding of whether AI "thinks."</div>
-                    </div>
-                </div>
+            <div id="standardsDisplay" class="standards-display">
+                <!-- Standards content will be populated here -->
             </div>
-
-            <!-- NGSS Standards -->
-            <div id="ngss" class="standards-content">
-                <div class="standard-section">
-                    <h2>Next Generation Science Standards (NGSS)</h2>
-                    
-                    <div class="alignment-note">
-                        As a discussion day, Lesson 1.7 emphasizes science practices related to argumentation, evidence-based reasoning, and understanding broader impacts of technology.
-                    </div>
-
-                    <h3>Science and Engineering Practices</h3>
-                    
-                    <div class="standard-item">
-                        <div class="standard-code">Practice 6: Constructing Explanations and Designing Solutions</div>
-                        <div class="standard-description">Construct and revise an explanation based on valid and reliable evidence obtained from a variety of sources.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students construct explanations of AI's nature and capabilities based on evidence gathered through Chapter 1 experiments, revising their initial assumptions based on direct observation.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">Practice 7: Engaging in Argument from Evidence</div>
-                        <div class="standard-description">Construct, use, and present an oral and written argument supported by empirical evidence and scientific reasoning to support or refute an explanation or a model for a phenomenon.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students present oral arguments about whether AI "thinks," supported by evidence from their experiments. They engage in reasoned debate about AI's environmental costs vs. benefits, economic impacts, and ethical implications.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">Practice 8: Obtaining, Evaluating, and Communicating Information</div>
-                        <div class="standard-description">Critically read scientific literature adapted for classroom use to determine the central ideas or conclusions of a text; summarize complex concepts, processes, or information presented in a text.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students synthesize complex information about AI's rapid evolution, environmental impact (energy consumption data), and societal implications, communicating their understanding through discussion.</div>
-                    </div>
-
-                    <h3>Crosscutting Concepts</h3>
-                    
-                    <div class="standard-item">
-                        <div class="standard-code">Stability and Change</div>
-                        <div class="standard-description">Much of science deals with constructing explanations of how things change and how they remain stable.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Discussion of AI as a "moving target" emphasizes rapid technological change while identifying stable core concepts (pattern recognition, training data dependence) that remain constant.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">Cause and Effect: Mechanism and Explanation</div>
-                        <div class="standard-description">Events have causes, sometimes simple, sometimes multifaceted.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students explore cause-effect relationships: training data → AI capabilities; AI energy use → environmental impact; AI automation → economic disruption; unequal AI access → social inequality.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ISTE Standards -->
-            <div id="iste" class="standards-content">
-                <div class="standard-section">
-                    <h2>ISTE Standards for Students</h2>
-                    
-                    <div class="alignment-note">
-                        Lesson 1.7's discussion format emphasizes digital citizenship, knowledge construction, and global collaboration as students consider AI's broader societal context.
-                    </div>
-
-                    <h3>1. Empowered Learner</h3>
-                    
-                    <div class="standard-item">
-                        <div class="standard-code">1d. Understand the fundamental concepts of technology operations</div>
-                        <div class="standard-description">Students understand the fundamental concepts of technology operations, demonstrate the ability to choose, use and troubleshoot current technologies.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students articulate their understanding of AI's fundamental operations (pattern recognition from training data) and reflect on how this understanding evolved through direct experimentation.</div>
-                    </div>
-
-                    <h3>2. Digital Citizen</h3>
-                    
-                    <div class="standard-item">
-                        <div class="standard-code">2b. Engage in positive, safe, legal and ethical behavior when using technology</div>
-                        <div class="standard-description">Students engage in positive, safe, legal and ethical behavior when using technology, including social interactions online or when using networked devices.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Discussion of AI's societal impacts addresses ethical questions: environmental responsibility of AI companies, social obligations regarding job displacement, equity in AI access.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">2c. Demonstrate an understanding of and respect for the rights and obligations of using and sharing intellectual property</div>
-                        <div class="standard-description">Students demonstrate an understanding of and respect for the rights and obligations of using and sharing intellectual property.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students reflect on their creative writing project collaboration with AI, considering questions of authorship, originality, and intellectual property in human-AI creative partnerships.</div>
-                    </div>
-
-                    <h3>3. Knowledge Constructor</h3>
-                    
-                    <div class="standard-item">
-                        <div class="standard-code">3b. Evaluate the accuracy, perspective, credibility and relevance of information</div>
-                        <div class="standard-description">Students evaluate the accuracy, perspective, credibility and relevance of information, media, data or other resources.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students evaluate information about AI's environmental impact (energy consumption data), considering credibility of claims about both costs and benefits of AI technology.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">3d. Build knowledge by actively exploring real-world issues and problems</div>
-                        <div class="standard-description">Students build knowledge by actively exploring real-world issues and problems, developing ideas and theories and pursuing answers and solutions.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Discussion explores real-world issues: environmental sustainability of AI computing, economic inequality from unequal AI access, social disruption from automation—building understanding of complex contemporary challenges.</div>
-                    </div>
-
-                    <h3>7. Global Collaborator</h3>
-                    
-                    <div class="standard-item">
-                        <div class="standard-code">7b. Use collaborative technologies to work with others</div>
-                        <div class="standard-description">Students use collaborative technologies to work with others, including peers, experts or community members, to examine issues and problems from multiple viewpoints.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Pair-share and whole-class discussion structures enable students to examine AI issues from multiple perspectives: environmental, economic, social, personal—synthesizing diverse viewpoints.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">7d. Explore local and global issues and use collaborative technologies to investigate solutions</div>
-                        <div class="standard-description">Students explore local and global issues and use collaborative technologies to work with others to investigate solutions.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students discuss global issues (AI's environmental impact, economic disruption, social inequality) and begin considering citizen roles in shaping AI development and regulation.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CSTA Standards -->
-            <div id="csta" class="standards-content">
-                <div class="standard-section">
-                    <h2>CSTA K-12 Computer Science Standards</h2>
-                    
-                    <div class="alignment-note">
-                        Lesson 1.7 addresses computer science standards related to societal impacts, ethics, and the broader context of computing technologies in human life.
-                    </div>
-
-                    <h3>Impacts of Computing</h3>
-                    
-                    <div class="standard-item">
-                        <div class="standard-code">3A-IC-24</div>
-                        <div class="standard-description">Evaluate the ways computing impacts personal, ethical, social, economic, and cultural practices.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Core lesson focus. Students explicitly discuss computing's impacts across domains: environmental (energy consumption), economic (job automation, productivity inequality), social (access inequality, decision-making power), ethical (responsibilities of developers and users).</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">3A-IC-28</div>
-                        <div class="standard-description">Explain the beneficial and harmful effects that intellectual property laws can have on innovation.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Discussion touches on AI's rapid evolution and questions of who benefits from AI development, connecting to broader questions about technology innovation, access, and intellectual property.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">3B-IC-25</div>
-                        <div class="standard-description">Evaluate computational artifacts to maximize their beneficial effects and minimize harmful effects on society.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students evaluate AI as a computational artifact by weighing benefits (problem-solving capabilities, productivity gains) against harms (energy consumption, job displacement, access inequality).</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">3B-IC-26</div>
-                        <div class="standard-description">Evaluate the impact of equity, access, and influence on the distribution of computing resources in a global society.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Economic impact discussion explicitly addresses unequal access to AI tools and the implications when some people are "supercharged" by AI while others lack access to these productivity-enhancing technologies.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">3B-IC-27</div>
-                        <div class="standard-description">Predict how computational innovations that have revolutionized aspects of our culture might evolve.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> "Moving target" discussion addresses AI's rapid evolution and has students predict future capabilities and implications. Students consider how AI that seems cutting-edge today will be primitive compared to future versions.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- C3 Framework -->
-            <div id="c3" class="standards-content">
-                <div class="standard-section">
-                    <h2>C3 Framework for Social Studies State Standards</h2>
-                    
-                    <div class="alignment-note">
-                        Lesson 1.7 strongly aligns with C3 Framework's emphasis on inquiry, deliberation about public issues, and civic engagement through informed discussion of technology's societal role.
-                    </div>
-
-                    <h3>Dimension 1: Developing Questions and Planning Inquiries</h3>
-                    
-                    <div class="standard-item">
-                        <div class="standard-code">D1.2.9-12</div>
-                        <div class="standard-description">Explain points of agreement and disagreement experts have about interpretations and applications of disciplinary concepts and ideas associated with a compelling question.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students explore disagreement about AI's net impact: Some see environmental costs as prohibitive; others emphasize problem-solving benefits. Students examine competing interpretations of AI's economic effects.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">D1.5.9-12</div>
-                        <div class="standard-description">Determine the kinds of sources that will be helpful in answering compelling and supporting questions, taking into consideration multiple points of view represented in the sources, the types of sources available, and the potential uses of the sources.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students synthesize multiple sources of evidence: their own experimental observations (field journals), lesson content, optional news articles, and peer perspectives during discussion—recognizing value of diverse information sources.</div>
-                    </div>
-
-                    <h3>Dimension 2: Applying Disciplinary Concepts - Economics</h3>
-                    
-                    <div class="standard-item">
-                        <div class="standard-code">D2.Eco.1.9-12</div>
-                        <div class="standard-description">Analyze how incentives influence choices that may result in policies with a range of costs and benefits for different groups.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Economic impact discussion examines how incentives drive AI development and deployment, with benefits accruing to those with access while costs (job displacement, energy consumption) are distributed differently across society.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">D2.Eco.14.9-12</div>
-                        <div class="standard-description">Analyze how technological innovations have affected economic decision-making and behaviors.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students discuss how AI innovations affect economic decisions: automation of work, productivity enhancements for some workers, changes in competitive advantages for businesses with AI access.</div>
-                    </div>
-
-                    <h3>Dimension 3: Evaluating Sources and Using Evidence</h3>
-                    
-                    <div class="standard-item">
-                        <div class="standard-code">D3.1.9-12</div>
-                        <div class="standard-description">Gather relevant information from multiple sources representing a wide range of views while using the origin, authority, structure, context, and corroborative value of the sources to guide the selection.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students draw on field journal evidence (their own authority), lesson content (educational authority), optional news articles (journalistic authority), and peer observations (collaborative authority) to construct understanding.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">D3.3.9-12</div>
-                        <div class="standard-description">Identify evidence that draws information directly and substantively from multiple sources to detect inconsistencies in evidence in order to revise or strengthen claims.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students identify evidence from their experiments that either confirms or challenges their initial assumptions about AI, revising their understanding based on direct observation and peer discussion.</div>
-                    </div>
-
-                    <h3>Dimension 4: Communicating Conclusions and Taking Informed Action</h3>
-                    
-                    <div class="standard-item">
-                        <div class="standard-code">D4.1.9-12</div>
-                        <div class="standard-description">Construct arguments using precise and knowledgeable claims, with evidence from multiple sources, while acknowledging counterclaims and evidentiary weaknesses.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students construct arguments about whether AI "thinks" using evidence from experiments while acknowledging alternative interpretations. Environmental/economic discussions require weighing competing claims with supporting evidence.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">D4.3.9-12</div>
-                        <div class="standard-description">Present adaptations of arguments and explanations that feature evocative ideas and perspectives on issues and topics to reach a range of audiences and venues outside the classroom.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Students practice articulating complex ideas about AI to peers with varying perspectives, developing communication skills applicable beyond the classroom to civic discourse about technology policy.</div>
-                    </div>
-
-                    <div class="standard-item">
-                        <div class="standard-code">D4.7.9-12</div>
-                        <div class="standard-description">Assess options for individual and collective action to address local, regional, and global problems by engaging in self-reflection, strategy identification, and complex causal reasoning.</div>
-                        <div class="lesson-connection"><strong>Lesson 1.7 Connection:</strong> Discussion prompts students to consider their role as citizens in shaping AI development and regulation: "What voice should citizens have in how AI is developed?" "What responsibilities do you have as someone who understands AI?"</div>
-                    </div>
-                </div>
-            </div>
-
-        </div><!-- End content -->
-    </div><!-- End container -->
+        </div>
+    </div>
 
     <script>
-        function showStandards(value) {
-            // Hide all standards content
-            const allContent = document.querySelectorAll('.standards-content');
-            allContent.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            // Show selected standards
-            if (value) {
-                const selectedContent = document.getElementById(value);
-                if (selectedContent) {
-                    selectedContent.classList.add('active');
+        const standardsData = {
+            c3: {
+                title: "C3 Framework - College, Career, and Civic Life (National)",
+                sections: {
+                    "Dimension 1 - Developing Questions and Planning Inquiries": [
+                        {
+                            code: "D1.2.9-12",
+                            text: "Explain points of agreement and disagreement experts have about interpretations and applications of disciplinary concepts and ideas associated with a compelling question."
+                        },
+                        {
+                            code: "D1.5.9-12",
+                            text: "Determine the kinds of sources that will be helpful in answering compelling and supporting questions, taking into consideration multiple points of view represented in the sources."
+                        }
+                    ],
+                    "Dimension 2 - Economics": [
+                        {
+                            code: "D2.Eco.1.9-12",
+                            text: "Analyze how incentives influence choices that may result in policies with a range of costs and benefits for different groups."
+                        },
+                        {
+                            code: "D2.Eco.14.9-12",
+                            text: "Analyze how technological innovations have affected economic decision-making and behaviors."
+                        }
+                    ],
+                    "Dimension 3 - Evaluating Sources and Using Evidence": [
+                        {
+                            code: "D3.1.9-12",
+                            text: "Gather relevant information from multiple sources representing a wide range of views while using the origin, authority, structure, context, and corroborative value of the sources to guide the selection."
+                        },
+                        {
+                            code: "D3.3.9-12",
+                            text: "Identify evidence that draws information directly and substantively from multiple sources to detect inconsistencies in evidence in order to revise or strengthen claims."
+                        }
+                    ],
+                    "Dimension 4 - Communicating Conclusions and Taking Informed Action": [
+                        {
+                            code: "D4.1.9-12",
+                            text: "Construct arguments using precise and knowledgeable claims, with evidence from multiple sources, while acknowledging counterclaims and evidentiary weaknesses."
+                        },
+                        {
+                            code: "D4.3.9-12",
+                            text: "Present adaptations of arguments and explanations that feature evocative ideas and perspectives on issues and topics to reach a range of audiences and venues outside the classroom."
+                        },
+                        {
+                            code: "D4.7.9-12",
+                            text: "Assess options for individual and collective action to address local, regional, and global problems by engaging in self-reflection, strategy identification, and complex causal reasoning."
+                        }
+                    ]
+                }
+            },
+            california: {
+                title: "California Education Standards",
+                sections: {
+                    "Social Studies - Principles of American Democracy": [
+                        {
+                            code: "12.10",
+                            text: "Students formulate questions about and defend their analyses of tensions within our constitutional democracy and the importance of maintaining a balance between individual rights and the common good."
+                        }
+                    ],
+                    "CTE - Information and Communication Technologies Sector": [
+                        {
+                            code: "ICT 4.2",
+                            text: "Analyze ethical implications of artificial intelligence in society."
+                        },
+                        {
+                            code: "ICT 8.1",
+                            text: "Use critical thinking to make informed decisions and solve problems in technology contexts."
+                        },
+                        {
+                            code: "ICT 9.3",
+                            text: "Demonstrate an understanding of emerging technologies and their applications."
+                        }
+                    ],
+                    "English Language Arts - Speaking and Listening": [
+                        {
+                            code: "SL.9-10.1",
+                            text: "Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 9-10 topics, texts, and issues."
+                        },
+                        {
+                            code: "SL.9-10.1.c",
+                            text: "Propel conversations by posing and responding to questions that relate the current discussion to broader themes or larger ideas."
+                        },
+                        {
+                            code: "SL.9-10.1.d",
+                            text: "Respond thoughtfully to diverse perspectives, summarize points of agreement and disagreement, and justify their own views."
+                        }
+                    ]
+                }
+            },
+            texas: {
+                title: "Texas Essential Knowledge and Skills (TEKS)",
+                sections: {
+                    "Social Studies - Sociology": [
+                        {
+                            code: "Soc §113.46(c)(13)",
+                            text: "The student understands how social institutions affect the lives of individuals in society. The student is expected to analyze the impact of technology on society."
+                        },
+                        {
+                            code: "Soc §113.46(c)(19)",
+                            text: "The student understands the concept of social change. The student is expected to evaluate the effects of major historical events on social change."
+                        }
+                    ],
+                    "CTE - Information Technology": [
+                        {
+                            code: "IT §130.277(c)(6)(A)",
+                            text: "The student analyzes the impact of emerging technologies. The student is expected to evaluate the impact of artificial intelligence on society."
+                        },
+                        {
+                            code: "IT §130.277(c)(6)(C)",
+                            text: "The student is expected to analyze ethical and legal issues related to the use of information technology."
+                        }
+                    ],
+                    "Social Studies Skills": [
+                        {
+                            code: "§113.46(c)(20)(A)",
+                            text: "The student applies critical-thinking skills to organize and use information acquired through established research methodologies."
+                        },
+                        {
+                            code: "§113.46(c)(20)(D)",
+                            text: "The student is expected to analyze information by formulating questions, comparing sources, and drawing conclusions."
+                        }
+                    ],
+                    "English Language Arts - Speaking and Listening": [
+                        {
+                            code: "§110.38(b)(1)",
+                            text: "Developing and sustaining foundational language skills: listening, speaking, discussion, and thinking orally. Students engage in meaningful discourse and provide and accept constructive feedback."
+                        }
+                    ]
+                }
+            },
+            florida: {
+                title: "Florida Standards",
+                sections: {
+                    "Social Studies - Sociology": [
+                        {
+                            code: "SS.912.S.4.7",
+                            text: "Discuss the impact of social change on individuals and society."
+                        },
+                        {
+                            code: "SS.912.S.8.7",
+                            text: "Evaluate the impact of recent technological innovations on social change."
+                        }
+                    ],
+                    "Digital Literacy & Computer Science": [
+                        {
+                            code: "CS.912.IC-SI.1.1",
+                            text: "Explain the impacts of computing on societal issues."
+                        }
+                    ],
+                    "English Language Arts - Speaking and Listening": [
+                        {
+                            code: "LAFS.910.SL.1.1",
+                            text: "Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 9-10 topics, texts, and issues."
+                        },
+                        {
+                            code: "LAFS.910.SL.1.1.c",
+                            text: "Propel conversations by posing and responding to questions that probe reasoning and evidence."
+                        }
+                    ]
+                }
+            },
+            new_york: {
+                title: "New York State Standards",
+                sections: {
+                    "Social Studies Framework - Participation in Government": [
+                        {
+                            code: "12.G4a",
+                            text: "Civic engagement includes working individually or collectively to address issues and problems confronting society."
+                        }
+                    ],
+                    "Social Studies Practices": [
+                        {
+                            code: "A. Gathering, Using, and Interpreting Evidence",
+                            text: "Students identify, describe, and evaluate evidence about events from diverse sources."
+                        },
+                        {
+                            code: "E. Economics and Economic Systems",
+                            text: "Students analyze how technological innovations have affected economic decision-making."
+                        }
+                    ],
+                    "Computer Science & Digital Fluency": [
+                        {
+                            code: "9-12.IC.5",
+                            text: "Describe ways that complex computer systems can be designed for inclusivity and to mitigate unintended consequences."
+                        },
+                        {
+                            code: "9-12.IC.7",
+                            text: "Investigate the use of computer science in multiple fields."
+                        }
+                    ],
+                    "English Language Arts - Speaking and Listening": [
+                        {
+                            code: "SL.9-10.1",
+                            text: "Initiate and participate effectively in collaborative discussions, building on others' ideas and expressing their own clearly."
+                        }
+                    ]
+                }
+            },
+            pennsylvania: {
+                title: "Pennsylvania Academic Standards",
+                sections: {
+                    "Civics and Government": [
+                        {
+                            code: "5.3.12.B",
+                            text: "Examine how power and responsibility are distributed, shared and limited in the government of the United States."
+                        }
+                    ],
+                    "Economics": [
+                        {
+                            code: "6.4.12.E",
+                            text: "Explain how changes in technology affect businesses and individuals."
+                        }
+                    ],
+                    "Reading, Writing, Speaking and Listening": [
+                        {
+                            code: "1.6.11-12.A",
+                            text: "Listen critically and respond to others in small and large group situations."
+                        },
+                        {
+                            code: "1.6.11-12.B",
+                            text: "Participate in small and large group discussions and presentations."
+                        }
+                    ]
+                }
+            },
+            illinois: {
+                title: "Illinois Learning Standards",
+                sections: {
+                    "Social Science": [
+                        {
+                            code: "SS.IS.4.9-12",
+                            text: "Develop claims using evidence from multiple sources to answer essential questions."
+                        },
+                        {
+                            code: "SS.CV.5.9-12",
+                            text: "Evaluate citizens' individual and collective capacities to address social and political problems."
+                        }
+                    ],
+                    "Computer Science": [
+                        {
+                            code: "9-12.IC.SI.1",
+                            text: "Evaluate the ways computing impacts personal, ethical, social, economic, and cultural practices."
+                        },
+                        {
+                            code: "9-12.IC.C.1",
+                            text: "Evaluate computational artifacts to maximize their beneficial effects and minimize harmful effects on society."
+                        }
+                    ],
+                    "English Language Arts - Speaking and Listening": [
+                        {
+                            code: "SL.9-10.1",
+                            text: "Initiate and participate effectively in collaborative discussions on grades 9-10 topics, texts, and issues."
+                        }
+                    ]
+                }
+            },
+            ohio: {
+                title: "Ohio Learning Standards",
+                sections: {
+                    "Social Studies - Contemporary World Issues": [
+                        {
+                            code: "CWI.9",
+                            text: "Technological developments have cultural and economic effects throughout the world."
+                        }
+                    ],
+                    "Social Studies Skills & Methods": [
+                        {
+                            code: "SSM.1",
+                            text: "Conduct research and investigations by developing questions, generating potential sources, gathering relevant information, analyzing multiple perspectives, and drawing conclusions."
+                        }
+                    ],
+                    "Computer Science": [
+                        {
+                            code: "CS.HS.IC.1",
+                            text: "Evaluate the beneficial and harmful effects computing has had on society."
+                        }
+                    ],
+                    "English Language Arts - Speaking and Listening": [
+                        {
+                            code: "SL.9-10.1",
+                            text: "Initiate and participate effectively in collaborative discussions with diverse partners."
+                        }
+                    ]
+                }
+            },
+            georgia: {
+                title: "Georgia Standards of Excellence",
+                sections: {
+                    "Social Studies - Economics": [
+                        {
+                            code: "SSEF6",
+                            text: "The student will explain how productivity, economic growth, and future standards of living are influenced by investment in new technology."
+                        }
+                    ],
+                    "Information Technology": [
+                        {
+                            code: "IT-WD-5",
+                            text: "Students will evaluate emerging technologies and their impact on society."
+                        }
+                    ],
+                    "English Language Arts - Speaking and Listening": [
+                        {
+                            code: "ELAGSE9-10SL1",
+                            text: "Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 9-10 topics, texts, and issues."
+                        }
+                    ]
+                }
+            },
+            north_carolina: {
+                title: "North Carolina Standard Course of Study",
+                sections: {
+                    "Social Studies - Sociology": [
+                        {
+                            code: "SS.SO.4",
+                            text: "Analyze how social change impacts individuals, institutions, and society."
+                        }
+                    ],
+                    "Social Studies - Civics & Economics": [
+                        {
+                            code: "CE.E.1.1",
+                            text: "Analyze how economic choices influence employment opportunities and standards of living."
+                        }
+                    ],
+                    "Computer Science": [
+                        {
+                            code: "CS.IC.9-12.1",
+                            text: "Evaluate the beneficial and harmful effects that computational artifacts and innovations have on society, economy, and culture."
+                        }
+                    ],
+                    "English Language Arts - Speaking and Listening": [
+                        {
+                            code: "SL.9-10.1",
+                            text: "Initiate and participate effectively in collaborative discussions."
+                        }
+                    ]
+                }
+            },
+            michigan: {
+                title: "Michigan Academic Standards",
+                sections: {
+                    "Social Studies - Inquiry": [
+                        {
+                            code: "P1.1",
+                            text: "Deeply explore a range of informed perspectives on an issue or question to develop and refine questions for further investigation."
+                        },
+                        {
+                            code: "P4.2",
+                            text: "Construct arguments using claims and evidence from multiple sources."
+                        }
+                    ],
+                    "Social Studies - Public Discourse": [
+                        {
+                            code: "6.P4.1",
+                            text: "Engage in discussions that advocate for a position while recognizing and applying the perspectives of others."
+                        },
+                        {
+                            code: "6.P4.2",
+                            text: "Critique arguments related to issues and problems of the discipline with credible evidence."
+                        }
+                    ],
+                    "Computer Science": [
+                        {
+                            code: "HS.IC.SI.1",
+                            text: "Evaluate the ways computing impacts personal, ethical, social, economic, and cultural practices."
+                        }
+                    ]
+                }
+            },
+            washington: {
+                title: "Washington State Learning Standards",
+                sections: {
+                    "Social Studies - Civics": [
+                        {
+                            code: "SSS5.9-12.2",
+                            text: "Analyze how individuals take action and advocate for change to address issues and problems in communities and systems."
+                        }
+                    ],
+                    "Social Studies - Economics": [
+                        {
+                            code: "SSS2.9-12.2",
+                            text: "Analyze how factors such as economic changes, technological innovations, environmental changes, and government action shape social and economic opportunities."
+                        }
+                    ],
+                    "Computer Science": [
+                        {
+                            code: "9-12.IC.C.01",
+                            text: "Evaluate the ways computing innovations impact culture, society, and individuals."
+                        }
+                    ],
+                    "English Language Arts - Speaking and Listening": [
+                        {
+                            code: "SL.9-10.1",
+                            text: "Initiate and participate effectively in collaborative discussions."
+                        }
+                    ]
+                }
+            },
+            mississippi: {
+                title: "Mississippi College and Career Readiness Standards",
+                sections: {
+                    "Social Studies - Sociology": [
+                        {
+                            code: "SOC.3",
+                            text: "Analyze the impact of social change, including technological innovations, on individuals, groups, and institutions."
+                        }
+                    ],
+                    "Social Studies - Government": [
+                        {
+                            code: "GOV.13",
+                            text: "Analyze contemporary policy issues and their impact on individuals and communities."
+                        }
+                    ],
+                    "Career and Technical Education - Information Technology": [
+                        {
+                            code: "IT.4.1",
+                            text: "Evaluate the impact of emerging technologies on businesses, industries, and society."
+                        }
+                    ],
+                    "English Language Arts - Speaking and Listening": [
+                        {
+                            code: "SL.9-10.1",
+                            text: "Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 9-10 topics, texts, and issues."
+                        },
+                        {
+                            code: "SL.9-10.1.c",
+                            text: "Propel conversations by posing and responding to questions that relate the current discussion to broader themes or larger ideas."
+                        }
+                    ]
                 }
             }
+        };
+
+        document.getElementById('stateSelector').addEventListener('change', function() {
+            const selectedState = this.value;
+            const displayDiv = document.getElementById('standardsDisplay');
+            
+            if (selectedState && standardsData[selectedState]) {
+                displayStandards(selectedState);
+                displayDiv.style.display = 'block';
+            } else {
+                displayDiv.style.display = 'none';
+            }
+        });
+
+        function displayStandards(state) {
+            const data = standardsData[state];
+            const displayDiv = document.getElementById('standardsDisplay');
+            
+            let html = `
+                <div class="standards-header">
+                    <h2>${data.title}</h2>
+                    <p>Standards addressed in Lesson 1.7</p>
+                </div>
+            `;
+            
+            for (const [sectionName, standards] of Object.entries(data.sections)) {
+                html += `
+                    <div class="standards-section">
+                        <h3>${sectionName}</h3>
+                `;
+                
+                standards.forEach(standard => {
+                    html += `
+                        <div class="standard-item">
+                            <div class="standard-code">${standard.code}</div>
+                            <div class="standard-text">${standard.text}</div>
+                        </div>
+                    `;
+                });
+                
+                html += `</div>`;
+            }
+            
+            displayDiv.innerHTML = html;
         }
     </script>
 </body>
