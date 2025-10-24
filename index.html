@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 1.7 State Standards - Understanding AI</title>
+    <title>Lesson 1.7: Intelligence All Around Us - State Standards Alignment</title>
     <style>
         * {
             margin: 0;
@@ -199,9 +199,8 @@
                 <div class="selector-label">Select your state or standards framework:</div>
                 <select id="stateSelector" class="state-selector">
                     <option value="">Choose your state...</option>
-                    <option value="c3">C3 Framework (National Social Studies)</option>
+                    <option value="texas">Texas (TEKS)</option>
                     <option value="california">California</option>
-                    <option value="texas">Texas</option>
                     <option value="florida">Florida</option>
                     <option value="new_york">New York</option>
                     <option value="pennsylvania">Pennsylvania</option>
@@ -210,8 +209,15 @@
                     <option value="georgia">Georgia</option>
                     <option value="north_carolina">North Carolina</option>
                     <option value="michigan">Michigan</option>
+                    <option value="virginia">Virginia</option>
                     <option value="washington">Washington</option>
                     <option value="mississippi">Mississippi</option>
+                    <option value="colorado">Colorado</option>
+                    <option value="ccss_math">Common Core State Standards (CCSS) - Math</option>
+                    <option value="ngss">Next Generation Science Standards (NGSS)</option>
+                    <option value="iste">ISTE Standards for Students</option>
+                    <option value="csta">CSTA K-12 Computer Science Standards</option>
+                    <option value="c3">C3 Framework for Social Studies</option>
                 </select>
             </div>
 
@@ -223,51 +229,43 @@
 
     <script>
         const standardsData = {
-            c3: {
-                title: "C3 Framework - College, Career, and Civic Life (National)",
+            texas: {
+                title: "Texas Essential Knowledge and Skills (TEKS)",
                 sections: {
-                    "Dimension 1 - Developing Questions and Planning Inquiries": [
+                    "Social Studies - Sociology": [
                         {
-                            code: "D1.2.9-12",
-                            text: "Explain points of agreement and disagreement experts have about interpretations and applications of disciplinary concepts and ideas associated with a compelling question."
+                            code: "Soc §113.46(c)(13)",
+                            text: "The student understands how social institutions affect the lives of individuals in society. The student is expected to analyze the impact of technology on society."
                         },
                         {
-                            code: "D1.5.9-12",
-                            text: "Determine the kinds of sources that will be helpful in answering compelling and supporting questions, taking into consideration multiple points of view represented in the sources."
+                            code: "Soc §113.46(c)(19)",
+                            text: "The student understands the concept of social change. The student is expected to evaluate the effects of major historical events on social change."
                         }
                     ],
-                    "Dimension 2 - Economics": [
+                    "CTE - Information Technology": [
                         {
-                            code: "D2.Eco.1.9-12",
-                            text: "Analyze how incentives influence choices that may result in policies with a range of costs and benefits for different groups."
+                            code: "IT §130.277(c)(6)(A)",
+                            text: "The student analyzes the impact of emerging technologies. The student is expected to evaluate the impact of artificial intelligence on society."
                         },
                         {
-                            code: "D2.Eco.14.9-12",
-                            text: "Analyze how technological innovations have affected economic decision-making and behaviors."
+                            code: "IT §130.277(c)(6)(C)",
+                            text: "The student is expected to analyze ethical and legal issues related to the use of information technology."
                         }
                     ],
-                    "Dimension 3 - Evaluating Sources and Using Evidence": [
+                    "Social Studies Skills": [
                         {
-                            code: "D3.1.9-12",
-                            text: "Gather relevant information from multiple sources representing a wide range of views while using the origin, authority, structure, context, and corroborative value of the sources to guide the selection."
+                            code: "§113.46(c)(20)(A)",
+                            text: "The student applies critical-thinking skills to organize and use information acquired through established research methodologies."
                         },
                         {
-                            code: "D3.3.9-12",
-                            text: "Identify evidence that draws information directly and substantively from multiple sources to detect inconsistencies in evidence in order to revise or strengthen claims."
+                            code: "§113.46(c)(20)(D)",
+                            text: "The student is expected to analyze information by formulating questions, comparing sources, and drawing conclusions."
                         }
                     ],
-                    "Dimension 4 - Communicating Conclusions and Taking Informed Action": [
+                    "English Language Arts - Speaking and Listening": [
                         {
-                            code: "D4.1.9-12",
-                            text: "Construct arguments using precise and knowledgeable claims, with evidence from multiple sources, while acknowledging counterclaims and evidentiary weaknesses."
-                        },
-                        {
-                            code: "D4.3.9-12",
-                            text: "Present adaptations of arguments and explanations that feature evocative ideas and perspectives on issues and topics to reach a range of audiences and venues outside the classroom."
-                        },
-                        {
-                            code: "D4.7.9-12",
-                            text: "Assess options for individual and collective action to address local, regional, and global problems by engaging in self-reflection, strategy identification, and complex causal reasoning."
+                            code: "§110.38(b)(1)",
+                            text: "Developing and sustaining foundational language skills: listening, speaking, discussion, and thinking orally. Students engage in meaningful discourse and provide and accept constructive feedback."
                         }
                     ]
                 }
@@ -307,47 +305,6 @@
                         {
                             code: "SL.9-10.1.d",
                             text: "Respond thoughtfully to diverse perspectives, summarize points of agreement and disagreement, and justify their own views."
-                        }
-                    ]
-                }
-            },
-            texas: {
-                title: "Texas Essential Knowledge and Skills (TEKS)",
-                sections: {
-                    "Social Studies - Sociology": [
-                        {
-                            code: "Soc §113.46(c)(13)",
-                            text: "The student understands how social institutions affect the lives of individuals in society. The student is expected to analyze the impact of technology on society."
-                        },
-                        {
-                            code: "Soc §113.46(c)(19)",
-                            text: "The student understands the concept of social change. The student is expected to evaluate the effects of major historical events on social change."
-                        }
-                    ],
-                    "CTE - Information Technology": [
-                        {
-                            code: "IT §130.277(c)(6)(A)",
-                            text: "The student analyzes the impact of emerging technologies. The student is expected to evaluate the impact of artificial intelligence on society."
-                        },
-                        {
-                            code: "IT §130.277(c)(6)(C)",
-                            text: "The student is expected to analyze ethical and legal issues related to the use of information technology."
-                        }
-                    ],
-                    "Social Studies Skills": [
-                        {
-                            code: "§113.46(c)(20)(A)",
-                            text: "The student applies critical-thinking skills to organize and use information acquired through established research methodologies."
-                        },
-                        {
-                            code: "§113.46(c)(20)(D)",
-                            text: "The student is expected to analyze information by formulating questions, comparing sources, and drawing conclusions."
-                        }
-                    ],
-                    "English Language Arts - Speaking and Listening": [
-                        {
-                            code: "§110.38(b)(1)",
-                            text: "Developing and sustaining foundational language skills: listening, speaking, discussion, and thinking orally. Students engage in meaningful discourse and provide and accept constructive feedback."
                         }
                     ]
                 }
@@ -590,6 +547,33 @@
                     ]
                 }
             },
+            virginia: {
+                title: "Virginia Standards of Learning",
+                sections: {
+                    "Social Studies - Virginia and United States Government": [
+                        {
+                            code: "GOVT.13",
+                            text: "The student will demonstrate knowledge of the role of government in the economy by analyzing how economic and societal changes impact government policies."
+                        }
+                    ],
+                    "Computer Science": [
+                        {
+                            code: "CS.6-8.IC.1",
+                            text: "Analyze and explain how computing technologies have changed the world and express how those technologies influence, and are influenced by, cultural practices."
+                        }
+                    ],
+                    "English Language Arts - Communication and Multimodal Literacies": [
+                        {
+                            code: "9.1",
+                            text: "The student will make planned multimodal, interactive presentations collaboratively and individually."
+                        },
+                        {
+                            code: "9.2",
+                            text: "The student will participate in and facilitate productive discussions with diverse partners."
+                        }
+                    ]
+                }
+            },
             washington: {
                 title: "Washington State Learning Standards",
                 sections: {
@@ -648,6 +632,188 @@
                         {
                             code: "SL.9-10.1.c",
                             text: "Propel conversations by posing and responding to questions that relate the current discussion to broader themes or larger ideas."
+                        }
+                    ]
+                }
+            },
+            colorado: {
+                title: "Colorado Academic Standards",
+                sections: {
+                    "Social Studies - Economics": [
+                        {
+                            code: "HS.2.1",
+                            text: "Analyze the economic reasons why choices are made and the consequences of those choices."
+                        },
+                        {
+                            code: "HS.2.3",
+                            text: "Analyze the role of innovation, entrepreneurship, and free market forces in economic growth."
+                        }
+                    ],
+                    "Social Studies - Civics": [
+                        {
+                            code: "HS.3.2",
+                            text: "Research, formulate positions, and engage in civil discourse about domestic and international policy."
+                        }
+                    ],
+                    "Computer Science": [
+                        {
+                            code: "HS.IC.1",
+                            text: "Evaluate the impact of computing on personal, economic, and social life."
+                        }
+                    ],
+                    "Reading, Writing, and Communicating - Oral Expression and Listening": [
+                        {
+                            code: "HS.1.1.a",
+                            text: "Engage in democratic discussions that value diverse perspectives with attention to peer and adult models."
+                        }
+                    ]
+                }
+            },
+            ccss_math: {
+                title: "Common Core State Standards - Mathematics",
+                sections: {
+                    "Standards for Mathematical Practice": [
+                        {
+                            code: "MP.3",
+                            text: "Construct viable arguments and critique the reasoning of others. Students justify their conclusions, communicate them to others, and respond to the arguments of others."
+                        },
+                        {
+                            code: "MP.6",
+                            text: "Attend to precision. Students try to communicate precisely to others and try to use clear definitions in discussion."
+                        }
+                    ],
+                    "High School - Statistics and Probability": [
+                        {
+                            code: "S-IC.6",
+                            text: "Evaluate reports based on data, making judgments about the validity of conclusions and considering the reasonableness of claims."
+                        }
+                    ]
+                }
+            },
+            ngss: {
+                title: "Next Generation Science Standards (NGSS)",
+                sections: {
+                    "Science and Engineering Practices": [
+                        {
+                            code: "Asking Questions",
+                            text: "Students formulate and refine questions that can be answered empirically and evaluate questions generated by others."
+                        },
+                        {
+                            code: "Analyzing and Interpreting Data",
+                            text: "Students analyze data systematically, either individually or collaboratively, and consider limitations of data analyses."
+                        },
+                        {
+                            code: "Engaging in Argument from Evidence",
+                            text: "Students construct, use, and present an oral argument supported by evidence to support or refute an explanation or a model for a phenomenon."
+                        },
+                        {
+                            code: "Obtaining, Evaluating, and Communicating Information",
+                            text: "Students evaluate the validity and reliability of multiple claims that appear in scientific and technical texts, or media reports, verifying the data when possible."
+                        }
+                    ]
+                }
+            },
+            iste: {
+                title: "ISTE Standards for Students",
+                sections: {
+                    "1. Empowered Learner": [
+                        {
+                            code: "1.d",
+                            text: "Students understand the fundamental concepts of technology operations, demonstrate the ability to choose, use and troubleshoot current technologies."
+                        }
+                    ],
+                    "3. Knowledge Constructor": [
+                        {
+                            code: "3.a",
+                            text: "Students plan and employ effective research strategies to locate information and other resources for their intellectual or creative pursuits."
+                        },
+                        {
+                            code: "3.b",
+                            text: "Students evaluate the accuracy, perspective, credibility and relevance of information, media, data or other resources."
+                        },
+                        {
+                            code: "3.d",
+                            text: "Students build knowledge by actively exploring real-world issues and problems, developing ideas and theories and pursuing answers and solutions."
+                        }
+                    ],
+                    "7. Global Collaborator": [
+                        {
+                            code: "7.c",
+                            text: "Students contribute constructively to project teams, assuming various roles and responsibilities to work effectively toward a common goal."
+                        }
+                    ]
+                }
+            },
+            csta: {
+                title: "CSTA K-12 Computer Science Standards",
+                sections: {
+                    "Impacts of Computing": [
+                        {
+                            code: "3A-IC-24",
+                            text: "Evaluate the ways computing impacts personal, ethical, social, economic, and cultural practices."
+                        },
+                        {
+                            code: "3A-IC-27",
+                            text: "Use tools and methods for collaboration on a project to increase connectivity of people in different cultures and career fields."
+                        },
+                        {
+                            code: "3B-IC-25",
+                            text: "Evaluate computational artifacts to maximize their beneficial effects and minimize harmful effects on society."
+                        }
+                    ],
+                    "Artificial Intelligence": [
+                        {
+                            code: "3B-AI-01",
+                            text: "Explain the capabilities and limitations of current artificial intelligence technologies."
+                        }
+                    ]
+                }
+            },
+            c3: {
+                title: "C3 Framework - College, Career, and Civic Life (National)",
+                sections: {
+                    "Dimension 1 - Developing Questions and Planning Inquiries": [
+                        {
+                            code: "D1.2.9-12",
+                            text: "Explain points of agreement and disagreement experts have about interpretations and applications of disciplinary concepts and ideas associated with a compelling question."
+                        },
+                        {
+                            code: "D1.5.9-12",
+                            text: "Determine the kinds of sources that will be helpful in answering compelling and supporting questions, taking into consideration multiple points of view represented in the sources."
+                        }
+                    ],
+                    "Dimension 2 - Economics": [
+                        {
+                            code: "D2.Eco.1.9-12",
+                            text: "Analyze how incentives influence choices that may result in policies with a range of costs and benefits for different groups."
+                        },
+                        {
+                            code: "D2.Eco.14.9-12",
+                            text: "Analyze how technological innovations have affected economic decision-making and behaviors."
+                        }
+                    ],
+                    "Dimension 3 - Evaluating Sources and Using Evidence": [
+                        {
+                            code: "D3.1.9-12",
+                            text: "Gather relevant information from multiple sources representing a wide range of views while using the origin, authority, structure, context, and corroborative value of the sources to guide the selection."
+                        },
+                        {
+                            code: "D3.3.9-12",
+                            text: "Identify evidence that draws information directly and substantively from multiple sources to detect inconsistencies in evidence in order to revise or strengthen claims."
+                        }
+                    ],
+                    "Dimension 4 - Communicating Conclusions and Taking Informed Action": [
+                        {
+                            code: "D4.1.9-12",
+                            text: "Construct arguments using precise and knowledgeable claims, with evidence from multiple sources, while acknowledging counterclaims and evidentiary weaknesses."
+                        },
+                        {
+                            code: "D4.3.9-12",
+                            text: "Present adaptations of arguments and explanations that feature evocative ideas and perspectives on issues and topics to reach a range of audiences and venues outside the classroom."
+                        },
+                        {
+                            code: "D4.7.9-12",
+                            text: "Assess options for individual and collective action to address local, regional, and global problems by engaging in self-reflection, strategy identification, and complex causal reasoning."
                         }
                     ]
                 }
